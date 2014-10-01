@@ -161,13 +161,17 @@ enum {
 
 -(void)motorVoz:(MotorVoz *)motorVoz terminoReconocimientoConResultados:(SKRecognition *)results
 {
-    NSString *resultadoMasProbable = [results firstResult];
+    NSString *resultadoMasProbable = [[results firstResult] lowercaseString];
     
-    if (estado == AMEsperandoPregunta)
+    if ([resultadoMasProbable isEqualToString:@"cancelar"])
     {
-        if ([resultadoMasProbable containsString:@"Llévame a"])
+        estado = AMEsperandoPregunta;
+    }
+    else if (estado == AMEsperandoPregunta)
+    {
+        if ([resultadoMasProbable containsString:@"llévame a"])
         {
-            NSArray *componentes = [resultadoMasProbable componentsSeparatedByString:@"Llévame a"];
+            NSArray *componentes = [resultadoMasProbable componentsSeparatedByString:@"llévame a"];
             
             //[self.motorVoz dictar:resultadoMasProbable];
             
