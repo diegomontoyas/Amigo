@@ -87,7 +87,7 @@ enum {
 -(void)buscarSitiosConPalabrasClave:(NSString *) palabrasClave
 {
     CLLocationCoordinate2D coordendas = self.locationManager.location.coordinate;
-    int radioBusqueda = 200;
+    int radioBusqueda = 300;
     
     NSString *stringUrl = [NSString stringWithFormat: @"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%f,%f&radius=%d&sensor=true&name=%@&key=%@", coordendas.latitude, coordendas.longitude, radioBusqueda, palabrasClave, kGOOGLE_API_KEY];
     
@@ -187,7 +187,9 @@ enum {
     }
     else if (estado == AMEsperandoRespuestaSitio)
     {
-        for (int i = 0; i< self.sitiosUltimaConsulta.count && i<5; i++)
+        BOOL encontroSitio = NO;
+        
+        for (int i = 0; i< self.sitiosUltimaConsulta.count && i<5 && !encontroSitio; i++)
         {
             Sitio *sitio = self.sitiosUltimaConsulta[i];
             
@@ -200,11 +202,11 @@ enum {
                 
                 [self.motorVoz dictar:resultadoHablado];
                 estado = AMEsperandoPregunta;
-                break;
+                encontroSitio = YES;
             }
         }
         
-        [self.motorVoz dictar:@"Parece que eso no está en los resultados. quizás intenta otra vez"];
+        if (!encontroSitio) [self.motorVoz dictar:@"Parece que eso no está en los resultados. quizás intenta otra vez"];
     }
 }
 
