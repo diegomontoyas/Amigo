@@ -31,4 +31,6 @@
 
 -(void) detenerReconocimientoVoz;
 
+-(void) anunciarUbicacionActual;
+
 @end

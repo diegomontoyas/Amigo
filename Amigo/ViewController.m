@@ -21,12 +21,21 @@
 - (void) inicializar
 {
     [Sistema S].delegate = self;
+    
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(botonPresionadoConDobleToque:)];
+    doubleTap.numberOfTapsRequired = 2;
+    [self.botonPantalla addGestureRecognizer:doubleTap];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self inicializar];
+}
+
+- (void) botonPresionadoConDobleToque:(id)sender
+{
+    [[Sistema S]anunciarUbicacionActual];
 }
 
 - (IBAction)botonPantallaPresionado:(id)sender

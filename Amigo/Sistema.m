@@ -16,6 +16,7 @@
 
 @property (nonatomic) CLLocationManager *locationManager;
 @property (nonatomic) NSMutableArray *sitiosUltimaConsulta;
+@property (nonatomic) Sitio *ultimaUbicacionActualRegistrada;
 
 @end
 
@@ -59,6 +60,7 @@ enum {
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [self.locationManager startUpdatingLocation];
+    [self.locationManager startUpdatingHeading];
     
     estado = AMEsperandoPregunta;
 }
@@ -157,6 +159,100 @@ enum {
     }
 }
 
+-(void) anunciarUbicacionActual
+{
+    [self buscarInformacionUbicacionActual];
+}
+
+-(void)buscarInformacionUbicacionActual
+{
+    CLLocationCoordinate2D coordendas = self.locationManager.location.coordinate;
+    
+    NSString *stringUrl = [NSString stringWithFormat: @"https://maps.googleapis.com/maps/api/geocode/json?latlng=%f,%f&sensor=true&key=%@", coordendas.latitude, coordendas.longitude, kGOOGLE_API_KEY];
+    
+    NSURL *URL = [NSURL URLWithString:[stringUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue new]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                               
+                               if (data) [self informacionUbicacionActualRecibidaConRespuesta:response data:data error:connectionError];
+                           }];
+}
+
+-(void)informacionUbicacionActualRecibidaConRespuesta:(NSURLResponse *)response data:(NSData *)data error:(NSError *)error
+{
+    if (data && !error)
+    {
+        self.sitiosUltimaConsulta = [NSMutableArray array];
+        
+        NSError *error = nil;
+        NSDictionary *JSONResponse = [NSJSONSerialization JSONObjectWithData:data
+                                                                     options:NSJSONReadingMutableContainers error:&error];
+        
+        NSDictionary *resultadoJSON = JSONResponse[@"results"][0];
+        NSString *direccion = resultadoJSON[@"formatted_address"];
+        direccion = [direccion componentsSeparatedByString:@"Bogotá"][0];
+        
+        Sitio *sitio = [[Sitio alloc]init];
+        sitio.direccion = direccion;
+        
+        self.ultimaUbicacionActualRegistrada = sitio;
+        
+        NSMutableString *respuestaHablada = [NSMutableString stringWithString:@"Estás en, "];
+        [respuestaHablada appendString:self.ultimaUbicacionActualRegistrada.direccion];
+        [respuestaHablada appendString:@" , mirando hacia el "];
+        [respuestaHablada appendString:[self direccionCardinalAPartirDeHeading:self.locationManager.heading]];
+        
+        [self.motorVoz dictar:respuestaHablada];
+    }
+}
+
+-(NSString *)direccionCardinalAPartirDeHeading:(CLHeading *) heading
+{
+    NSString *direccion;
+    CLLocationDirection trueHeading = heading.trueHeading;
+    
+    
+    if (trueHeading >= 0 && trueHeading < 45)
+    {
+        direccion = @"Norte";
+    }
+    else if (trueHeading >= 45 && trueHeading < 90)
+    {
+        direccion = @"Nororiente";
+    }
+    else if (trueHeading >= 90 && trueHeading < 135)
+    {
+        direccion = @"Oriente";
+    }
+    else if (trueHeading >= 135 && trueHeading < 180)
+    {
+        direccion = @"Suroriente";
+    }
+    else if (trueHeading >= 180 && trueHeading < 225)
+    {
+        direccion = @"Suroccidente";
+    }
+    else if (trueHeading >= 225 && trueHeading < 270)
+    {
+        direccion = @"Occidente";
+    }
+    else if (trueHeading >= 270 && trueHeading < 315)
+    {
+        direccion = @"Noroccidente";
+    }
+    else if (trueHeading >= 315 && trueHeading <= 360)
+    {
+        direccion = @"Norte";
+    }
+    
+    return direccion;
+}
+
 #pragma mark DelegateMotorVoz
 
 -(void)motorVoz:(MotorVoz *)motorVoz terminoReconocimientoConResultados:(SKRecognition *)results
@@ -233,10 +329,5 @@ enum {
 }
 
 #pragma mark CLLocationManagerDelegate
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
-{
-    
-}
 
 @end

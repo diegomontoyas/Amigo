@@ -24,6 +24,7 @@ enum {
     TS_INITIAL,
     TS_RECORDING,
     TS_PROCESSING,
+    TS_SPEAKING
 } transactionState;
 
 - (id)init
@@ -102,12 +103,12 @@ enum {
     NSLog(@"Got results.");
     NSLog(@"Session id [%@].", [SpeechKit sessionID]); // for debugging purpose: printing out the speechkit session id
     
-    transactionState = TS_IDLE;
     [self.recognizer cancel];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         
         [self.delegate motorVoz:self terminoReconocimientoConResultados:results];
+        transactionState = TS_IDLE;
     });
 }
 
@@ -116,15 +117,15 @@ enum {
     NSLog(@"Got error.");
     NSLog(@"Session id [%@].", [SpeechKit sessionID]); // for debugging purpose: printing out the speechkit session id
     
-    transactionState = TS_IDLE;
     [self.recognizer cancel];
+    transactionState = TS_IDLE;
 }
 
 #pragma mark SKVocalizerDelegate methods
 
 - (void)vocalizer:(SKVocalizer *)vocalizer willBeginSpeakingString:(NSString *)text
 {
-    
+    transactionState = TS_SPEAKING;
 }
 
 - (void)vocalizer:(SKVocalizer *)vocalizer willSpeakTextAtCharacter:(NSUInteger)index ofString:(NSString *)text
@@ -138,6 +139,7 @@ enum {
     dispatch_async(dispatch_get_main_queue(), ^{
         
         [self.delegate motorVozTerminoDictado:self];
+        transactionState = TS_IDLE;
     });
 }
 
