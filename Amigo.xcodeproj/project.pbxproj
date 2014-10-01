@@ -1,0 +1,566 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F104CDF519DACDD2000D38FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F104CDF419DACDD2000D38FC /* main.m */; };
+		F104CDF819DACDD2000D38FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F104CDF719DACDD2000D38FC /* AppDelegate.m */; };
+		F104CDFB19DACDD2000D38FC /* Amigo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F104CDF919DACDD2000D38FC /* Amigo.xcdatamodeld */; };
+		F104CDFE19DACDD2000D38FC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F104CDFD19DACDD2000D38FC /* ViewController.m */; };
+		F104CE0119DACDD2000D38FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F104CDFF19DACDD2000D38FC /* Main.storyboard */; };
+		F104CE0319DACDD2000D38FC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F104CE0219DACDD2000D38FC /* Images.xcassets */; };
+		F104CE0619DACDD2000D38FC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F104CE0419DACDD2000D38FC /* LaunchScreen.xib */; };
+		F104CE1219DACDD3000D38FC /* AmigoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F104CE1119DACDD3000D38FC /* AmigoTests.m */; };
+		F104CE2119DAD2A9000D38FC /* MotorVoz.m in Sources */ = {isa = PBXBuildFile; fileRef = F104CE2019DAD2A9000D38FC /* MotorVoz.m */; };
+		F104CE2E19DAF14A000D38FC /* SpeechKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F104CE2D19DAF14A000D38FC /* SpeechKit.framework */; };
+		F104CE3219DAF167000D38FC /* earcon_cancel.wav in Resources */ = {isa = PBXBuildFile; fileRef = F104CE2F19DAF167000D38FC /* earcon_cancel.wav */; };
+		F104CE3319DAF167000D38FC /* earcon_done_listening.wav in Resources */ = {isa = PBXBuildFile; fileRef = F104CE3019DAF167000D38FC /* earcon_done_listening.wav */; };
+		F104CE3419DAF167000D38FC /* earcon_listening.wav in Resources */ = {isa = PBXBuildFile; fileRef = F104CE3119DAF167000D38FC /* earcon_listening.wav */; };
+		F104CE3819DAF87E000D38FC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F104CE3719DAF87E000D38FC /* AudioToolbox.framework */; };
+		F104CE3A19DAF89E000D38FC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F104CE3919DAF89E000D38FC /* AVFoundation.framework */; };
+		F104CE3C19DAF8AC000D38FC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F104CE3B19DAF8AC000D38FC /* CFNetwork.framework */; };
+		F104CE3E19DAF8BB000D38FC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F104CE3D19DAF8BB000D38FC /* SystemConfiguration.framework */; };
+		F104CE4219DAF971000D38FC /* Sistema.m in Sources */ = {isa = PBXBuildFile; fileRef = F104CE4119DAF971000D38FC /* Sistema.m */; };
+		F104CE4419DB0E79000D38FC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F104CE4319DB0E79000D38FC /* CoreLocation.framework */; };
+		F104CE4719DB11C3000D38FC /* Sitio.m in Sources */ = {isa = PBXBuildFile; fileRef = F104CE4619DB11C3000D38FC /* Sitio.m */; };
+		F1DC88AF19DB79670090CC86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F104CE3519DAF867000D38FC /* Foundation.framework */; };
+		F1DC88B119DB79730090CC86 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1DC88B019DB79730090CC86 /* UIKit.framework */; };
+		F1DC88B319DB79920090CC86 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1DC88B219DB79920090CC86 /* Security.framework */; };
+		F1DC88E619DB8CD70090CC86 /* beginRecording.wav in Resources */ = {isa = PBXBuildFile; fileRef = F1DC88E319DB8CD70090CC86 /* beginRecording.wav */; };
+		F1DC88E819DB8CD70090CC86 /* stopRecording.wav in Resources */ = {isa = PBXBuildFile; fileRef = F1DC88E519DB8CD70090CC86 /* stopRecording.wav */; };
+		F1DC88EA19DB8D0D0090CC86 /* recordingCancelled.wav in Resources */ = {isa = PBXBuildFile; fileRef = F1DC88E919DB8D0D0090CC86 /* recordingCancelled.wav */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F104CE0C19DACDD3000D38FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F104CDE719DACDD2000D38FC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F104CDEE19DACDD2000D38FC;
+			remoteInfo = Amigo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F104CDEF19DACDD2000D38FC /* Amigo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Amigo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F104CDF319DACDD2000D38FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F104CDF419DACDD2000D38FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F104CDF619DACDD2000D38FC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F104CDF719DACDD2000D38FC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F104CDFA19DACDD2000D38FC /* Amigo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Amigo.xcdatamodel; sourceTree = "<group>"; };
+		F104CDFC19DACDD2000D38FC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		F104CDFD19DACDD2000D38FC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F104CE0019DACDD2000D38FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F104CE0219DACDD2000D38FC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F104CE0519DACDD2000D38FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		F104CE0B19DACDD3000D38FC /* AmigoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AmigoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F104CE1019DACDD3000D38FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F104CE1119DACDD3000D38FC /* AmigoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AmigoTests.m; sourceTree = "<group>"; };
+		F104CE1F19DAD2A9000D38FC /* MotorVoz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotorVoz.h; sourceTree = "<group>"; };
+		F104CE2019DAD2A9000D38FC /* MotorVoz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotorVoz.m; sourceTree = "<group>"; };
+		F104CE2D19DAF14A000D38FC /* SpeechKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpeechKit.framework; path = Amigo/SpeechKit.framework; sourceTree = "<group>"; };
+		F104CE2F19DAF167000D38FC /* earcon_cancel.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = earcon_cancel.wav; path = Resources/earcon_cancel.wav; sourceTree = "<group>"; };
+		F104CE3019DAF167000D38FC /* earcon_done_listening.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = earcon_done_listening.wav; path = Resources/earcon_done_listening.wav; sourceTree = "<group>"; };
+		F104CE3119DAF167000D38FC /* earcon_listening.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = earcon_listening.wav; path = Resources/earcon_listening.wav; sourceTree = "<group>"; };
+		F104CE3519DAF867000D38FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F104CE3719DAF87E000D38FC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		F104CE3919DAF89E000D38FC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		F104CE3B19DAF8AC000D38FC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		F104CE3D19DAF8BB000D38FC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		F104CE4019DAF971000D38FC /* Sistema.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sistema.h; sourceTree = "<group>"; };
+		F104CE4119DAF971000D38FC /* Sistema.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sistema.m; sourceTree = "<group>"; };
+		F104CE4319DB0E79000D38FC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F104CE4519DB11C3000D38FC /* Sitio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sitio.h; sourceTree = "<group>"; };
+		F104CE4619DB11C3000D38FC /* Sitio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sitio.m; sourceTree = "<group>"; };
+		F1DC88B019DB79730090CC86 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		F1DC88B219DB79920090CC86 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F1DC88E319DB8CD70090CC86 /* beginRecording.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = beginRecording.wav; path = Resources/beginRecording.wav; sourceTree = "<group>"; };
+		F1DC88E519DB8CD70090CC86 /* stopRecording.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = stopRecording.wav; path = Resources/stopRecording.wav; sourceTree = "<group>"; };
+		F1DC88E919DB8D0D0090CC86 /* recordingCancelled.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = recordingCancelled.wav; path = Resources/recordingCancelled.wav; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F104CDEC19DACDD2000D38FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1DC88B319DB79920090CC86 /* Security.framework in Frameworks */,
+				F1DC88B119DB79730090CC86 /* UIKit.framework in Frameworks */,
+				F1DC88AF19DB79670090CC86 /* Foundation.framework in Frameworks */,
+				F104CE4419DB0E79000D38FC /* CoreLocation.framework in Frameworks */,
+				F104CE3E19DAF8BB000D38FC /* SystemConfiguration.framework in Frameworks */,
+				F104CE3C19DAF8AC000D38FC /* CFNetwork.framework in Frameworks */,
+				F104CE3A19DAF89E000D38FC /* AVFoundation.framework in Frameworks */,
+				F104CE3819DAF87E000D38FC /* AudioToolbox.framework in Frameworks */,
+				F104CE2E19DAF14A000D38FC /* SpeechKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F104CE0819DACDD3000D38FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F104CDE619DACDD2000D38FC = {
+			isa = PBXGroup;
+			children = (
+				F104CDF119DACDD2000D38FC /* Amigo */,
+				F104CE3F19DAF8CE000D38FC /* Frameworks */,
+				F104CE0E19DACDD3000D38FC /* AmigoTests */,
+				F104CDF019DACDD2000D38FC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F104CDF019DACDD2000D38FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F104CDEF19DACDD2000D38FC /* Amigo.app */,
+				F104CE0B19DACDD3000D38FC /* AmigoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F104CDF119DACDD2000D38FC /* Amigo */ = {
+			isa = PBXGroup;
+			children = (
+				F104CE2619DAF0E5000D38FC /* Resources */,
+				F104CE1B19DAD0EF000D38FC /* Modelo */,
+				F104CDF619DACDD2000D38FC /* AppDelegate.h */,
+				F104CDF719DACDD2000D38FC /* AppDelegate.m */,
+				F104CDFC19DACDD2000D38FC /* ViewController.h */,
+				F104CDFD19DACDD2000D38FC /* ViewController.m */,
+				F104CDFF19DACDD2000D38FC /* Main.storyboard */,
+				F104CE0219DACDD2000D38FC /* Images.xcassets */,
+				F104CE0419DACDD2000D38FC /* LaunchScreen.xib */,
+				F104CDF919DACDD2000D38FC /* Amigo.xcdatamodeld */,
+				F104CDF219DACDD2000D38FC /* Supporting Files */,
+			);
+			path = Amigo;
+			sourceTree = "<group>";
+		};
+		F104CDF219DACDD2000D38FC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F104CDF319DACDD2000D38FC /* Info.plist */,
+				F104CDF419DACDD2000D38FC /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F104CE0E19DACDD3000D38FC /* AmigoTests */ = {
+			isa = PBXGroup;
+			children = (
+				F104CE1119DACDD3000D38FC /* AmigoTests.m */,
+				F104CE0F19DACDD3000D38FC /* Supporting Files */,
+			);
+			path = AmigoTests;
+			sourceTree = "<group>";
+		};
+		F104CE0F19DACDD3000D38FC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F104CE1019DACDD3000D38FC /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F104CE1B19DAD0EF000D38FC /* Modelo */ = {
+			isa = PBXGroup;
+			children = (
+				F104CE4519DB11C3000D38FC /* Sitio.h */,
+				F104CE4619DB11C3000D38FC /* Sitio.m */,
+				F104CE1F19DAD2A9000D38FC /* MotorVoz.h */,
+				F104CE2019DAD2A9000D38FC /* MotorVoz.m */,
+				F104CE4019DAF971000D38FC /* Sistema.h */,
+				F104CE4119DAF971000D38FC /* Sistema.m */,
+			);
+			name = Modelo;
+			sourceTree = "<group>";
+		};
+		F104CE2619DAF0E5000D38FC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F104CE2F19DAF167000D38FC /* earcon_cancel.wav */,
+				F104CE3019DAF167000D38FC /* earcon_done_listening.wav */,
+				F104CE3119DAF167000D38FC /* earcon_listening.wav */,
+				F1DC88E319DB8CD70090CC86 /* beginRecording.wav */,
+				F1DC88E919DB8D0D0090CC86 /* recordingCancelled.wav */,
+				F1DC88E519DB8CD70090CC86 /* stopRecording.wav */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		F104CE3F19DAF8CE000D38FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F1DC88B219DB79920090CC86 /* Security.framework */,
+				F1DC88B019DB79730090CC86 /* UIKit.framework */,
+				F104CE4319DB0E79000D38FC /* CoreLocation.framework */,
+				F104CE3D19DAF8BB000D38FC /* SystemConfiguration.framework */,
+				F104CE3B19DAF8AC000D38FC /* CFNetwork.framework */,
+				F104CE3919DAF89E000D38FC /* AVFoundation.framework */,
+				F104CE3719DAF87E000D38FC /* AudioToolbox.framework */,
+				F104CE3519DAF867000D38FC /* Foundation.framework */,
+				F104CE2D19DAF14A000D38FC /* SpeechKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F104CDEE19DACDD2000D38FC /* Amigo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F104CE1519DACDD3000D38FC /* Build configuration list for PBXNativeTarget "Amigo" */;
+			buildPhases = (
+				F104CDEB19DACDD2000D38FC /* Sources */,
+				F104CDEC19DACDD2000D38FC /* Frameworks */,
+				F104CDED19DACDD2000D38FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Amigo;
+			productName = Amigo;
+			productReference = F104CDEF19DACDD2000D38FC /* Amigo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F104CE0A19DACDD3000D38FC /* AmigoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F104CE1819DACDD3000D38FC /* Build configuration list for PBXNativeTarget "AmigoTests" */;
+			buildPhases = (
+				F104CE0719DACDD3000D38FC /* Sources */,
+				F104CE0819DACDD3000D38FC /* Frameworks */,
+				F104CE0919DACDD3000D38FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F104CE0D19DACDD3000D38FC /* PBXTargetDependency */,
+			);
+			name = AmigoTests;
+			productName = AmigoTests;
+			productReference = F104CE0B19DACDD3000D38FC /* AmigoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F104CDE719DACDD2000D38FC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = Amigo;
+				TargetAttributes = {
+					F104CDEE19DACDD2000D38FC = {
+						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = BNAJ6CQ8UE;
+					};
+					F104CE0A19DACDD3000D38FC = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = F104CDEE19DACDD2000D38FC;
+					};
+				};
+			};
+			buildConfigurationList = F104CDEA19DACDD2000D38FC /* Build configuration list for PBXProject "Amigo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F104CDE619DACDD2000D38FC;
+			productRefGroup = F104CDF019DACDD2000D38FC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F104CDEE19DACDD2000D38FC /* Amigo */,
+				F104CE0A19DACDD3000D38FC /* AmigoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F104CDED19DACDD2000D38FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F104CE0119DACDD2000D38FC /* Main.storyboard in Resources */,
+				F1DC88E819DB8CD70090CC86 /* stopRecording.wav in Resources */,
+				F104CE0619DACDD2000D38FC /* LaunchScreen.xib in Resources */,
+				F104CE3319DAF167000D38FC /* earcon_done_listening.wav in Resources */,
+				F1DC88EA19DB8D0D0090CC86 /* recordingCancelled.wav in Resources */,
+				F104CE3219DAF167000D38FC /* earcon_cancel.wav in Resources */,
+				F104CE3419DAF167000D38FC /* earcon_listening.wav in Resources */,
+				F104CE0319DACDD2000D38FC /* Images.xcassets in Resources */,
+				F1DC88E619DB8CD70090CC86 /* beginRecording.wav in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F104CE0919DACDD3000D38FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F104CDEB19DACDD2000D38FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F104CE2119DAD2A9000D38FC /* MotorVoz.m in Sources */,
+				F104CDF819DACDD2000D38FC /* AppDelegate.m in Sources */,
+				F104CE4219DAF971000D38FC /* Sistema.m in Sources */,
+				F104CDFB19DACDD2000D38FC /* Amigo.xcdatamodeld in Sources */,
+				F104CE4719DB11C3000D38FC /* Sitio.m in Sources */,
+				F104CDFE19DACDD2000D38FC /* ViewController.m in Sources */,
+				F104CDF519DACDD2000D38FC /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F104CE0719DACDD3000D38FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F104CE1219DACDD3000D38FC /* AmigoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F104CE0D19DACDD3000D38FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F104CDEE19DACDD2000D38FC /* Amigo */;
+			targetProxy = F104CE0C19DACDD3000D38FC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F104CDFF19DACDD2000D38FC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F104CE0019DACDD2000D38FC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F104CE0419DACDD2000D38FC /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F104CE0519DACDD2000D38FC /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F104CE1319DACDD3000D38FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F104CE1419DACDD3000D38FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F104CE1619DACDD3000D38FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Amigo",
+				);
+				INFOPLIST_FILE = Amigo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Amigo/Amigo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F104CE1719DACDD3000D38FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Amigo",
+				);
+				INFOPLIST_FILE = Amigo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Amigo/Amigo-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		F104CE1919DACDD3000D38FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AmigoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Amigo.app/Amigo";
+			};
+			name = Debug;
+		};
+		F104CE1A19DACDD3000D38FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = AmigoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Amigo.app/Amigo";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F104CDEA19DACDD2000D38FC /* Build configuration list for PBXProject "Amigo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F104CE1319DACDD3000D38FC /* Debug */,
+				F104CE1419DACDD3000D38FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F104CE1519DACDD3000D38FC /* Build configuration list for PBXNativeTarget "Amigo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F104CE1619DACDD3000D38FC /* Debug */,
+				F104CE1719DACDD3000D38FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F104CE1819DACDD3000D38FC /* Build configuration list for PBXNativeTarget "AmigoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F104CE1919DACDD3000D38FC /* Debug */,
+				F104CE1A19DACDD3000D38FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F104CDF919DACDD2000D38FC /* Amigo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F104CDFA19DACDD2000D38FC /* Amigo.xcdatamodel */,
+			);
+			currentVersion = F104CDFA19DACDD2000D38FC /* Amigo.xcdatamodel */;
+			path = Amigo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F104CDE719DACDD2000D38FC /* Project object */;
+}
