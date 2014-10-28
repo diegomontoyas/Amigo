@@ -259,6 +259,8 @@ enum {
 {
     NSString *resultadoMasProbable = [[results firstResult] lowercaseString];
     
+    [self.delegate sistema:self nuevoReconocimientoVoz:resultadoMasProbable];
+    
     if ([resultadoMasProbable isEqualToString:@"cancelar"])
     {
         estado = AMEsperandoPregunta;
@@ -289,7 +291,7 @@ enum {
         {
             Sitio *sitio = self.sitiosUltimaConsulta[i];
             
-            if ([sitio.direccion containsString:resultadoMasProbable])
+            if ([[sitio.direccion lowercaseString] containsString:resultadoMasProbable])
             {
                 NSMutableString *resultadoHablado = [NSMutableString stringWithString:@"De acuerdo, vamos a "];
                 [resultadoHablado appendString:sitio.nombre];

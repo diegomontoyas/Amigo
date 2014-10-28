@@ -13,6 +13,7 @@
 @interface ViewController () <DelegateSistema>
 
 @property (strong, nonatomic) IBOutlet UIButton *botonPantalla;
+@property (strong, nonatomic) IBOutlet UILabel *label;
 
 @end
 
@@ -41,6 +42,11 @@
 - (IBAction)botonPantallaPresionado:(id)sender
 {
     [[Sistema S] comenzarReconocimientoVoz];
+}
+
+-(void)sistema:(Sistema *)sistema nuevoReconocimientoVoz:(NSString *)textoDetectado
+{
+    self.label.text = textoDetectado;
 }
 
 - (void)didReceiveMemoryWarning

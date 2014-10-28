@@ -30,39 +30,57 @@
                                     <action selector="botonPantallaPresionado:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="I1d-cL-FPI"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFY-ea-yOn">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mcL-zm-gOF" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="3PB-Ip-YxJ"/>
+                            <constraint firstItem="uFY-ea-yOn" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="9" id="HOM-GZ-3WK"/>
+                            <constraint firstItem="uFY-ea-yOn" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="69" id="aD0-We-rTa"/>
                             <constraint firstItem="mcL-zm-gOF" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="ajh-u6-9Td"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mcL-zm-gOF" secondAttribute="trailing" constant="-16" id="bSE-ke-msv"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="mcL-zm-gOF" secondAttribute="bottom" id="fyx-n2-EPD"/>
+                            <constraint firstItem="uFY-ea-yOn" firstAttribute="centerX" secondItem="mcL-zm-gOF" secondAttribute="centerX" id="ki6-dV-DmF"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="mcL-zm-gOF"/>
+                                <exclude reference="uFY-ea-yOn"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="fyx-n2-EPD"/>
                                 <exclude reference="3PB-Ip-YxJ"/>
                                 <exclude reference="ajh-u6-9Td"/>
                                 <exclude reference="bSE-ke-msv"/>
+                                <exclude reference="HOM-GZ-3WK"/>
+                                <exclude reference="aD0-We-rTa"/>
+                                <exclude reference="ki6-dV-DmF"/>
+                                <exclude reference="fyx-n2-EPD"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="mcL-zm-gOF"/>
+                                <include reference="uFY-ea-yOn"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="fyx-n2-EPD"/>
                                 <include reference="3PB-Ip-YxJ"/>
                                 <include reference="ajh-u6-9Td"/>
                                 <include reference="bSE-ke-msv"/>
+                                <include reference="HOM-GZ-3WK"/>
+                                <include reference="aD0-We-rTa"/>
+                                <include reference="ki6-dV-DmF"/>
+                                <include reference="fyx-n2-EPD"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="botonPantalla" destination="mcL-zm-gOF" id="BJU-UF-pC7"/>
+                        <outlet property="label" destination="uFY-ea-yOn" id="L0w-aS-tmb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

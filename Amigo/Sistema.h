@@ -16,6 +16,7 @@
 
 @required
 
+-(void) sistema:(Sistema *)sistema nuevoReconocimientoVoz:(NSString *)textoDetectado;
 
 @end
 
