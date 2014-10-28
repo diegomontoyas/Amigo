@@ -9,6 +9,7 @@
 #import "Sistema.h"
 #import "Sitio.h"
 #import <CoreLocation/CoreLocation.h>
+#import "Paso.h"
 
 #define kGOOGLE_API_KEY @"AIzaSyBhwNyfF9aoBiu48cMiAZVLzMHBncLmjrk"
 
@@ -16,6 +17,7 @@
 
 @property (nonatomic) CLLocationManager *locationManager;
 @property (nonatomic) NSMutableArray *sitiosUltimaConsulta;
+@property (nonatomic) NSMutableArray *pasosRestantesNavegacionActual;
 @property (nonatomic) Sitio *ultimaUbicacionActualRegistrada;
 
 @end
@@ -57,7 +59,7 @@ enum {
     self.locationManager = [[CLLocationManager alloc] init];
     [self.locationManager requestAlwaysAuthorization];
     self.locationManager.delegate = self;
-    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    self.locationManager.distanceFilter = 1;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [self.locationManager startUpdatingLocation];
     [self.locationManager startUpdatingHeading];
@@ -72,6 +74,15 @@ enum {
         _sitiosUltimaConsulta = [NSMutableArray array];
     }
     return _sitiosUltimaConsulta;
+}
+
+-(NSMutableArray *)pasosNavegacionActual
+{
+    if (!_pasosRestantesNavegacionActual)
+    {
+        _pasosRestantesNavegacionActual = [NSMutableArray array];
+    }
+    return _pasosRestantesNavegacionActual;
 }
 
 #pragma mark Métodos
@@ -330,6 +341,67 @@ enum {
     }
 }
 
+-(void) navegarAUbicacion:(CLLocation *)destino desde:(CLLocation *)origen
+{
+    NSMutableString *urlString = [NSMutableString stringWithString:@"https://maps.googleapis.com/maps/api/directions/json?"];
+    [urlString appendFormat:@"origin=%f,%f", origen.coordinate.latitude, origen.coordinate.longitude];
+    [urlString appendFormat:@"&destination=%f,%f", destino.coordinate.latitude, destino.coordinate.longitude];
+    [urlString appendString:@"&language=ES"];
+    [urlString appendString:[@"&key=" stringByAppendingString:kGOOGLE_API_KEY]];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue new]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                               
+                               if (data) [self informacionRutaRecibidaConRespuesta:response data:data error:connectionError];
+                           }];
+}
+
+-(void)informacionRutaRecibidaConRespuesta:(NSURLResponse *)response data:(NSData *)data error:(NSError *)error
+{
+    if (data && !error)
+    {
+        NSError *error = nil;
+        NSDictionary *JSONResponse = [NSJSONSerialization JSONObjectWithData:data
+                                                                     options:NSJSONReadingMutableContainers error:&error];
+        
+        NSDictionary *rutaJSON = ((NSArray *)JSONResponse[@"routes"])[0];
+        NSArray *tramosJSON = rutaJSON[@"legs"];
+        
+        for(NSDictionary *tramoJSON in tramosJSON)
+        {
+            NSArray *pasosJSON = tramoJSON[@"steps"];
+            
+            for(NSDictionary *pasoJSON in pasosJSON)
+            {
+                NSDictionary *ubicacionJSON = pasoJSON[@"start_location"];
+                CLLocation *ubicacion = [[CLLocation alloc]initWithLatitude:[ubicacionJSON[@"lat"] floatValue]
+                                                                  longitude:[ubicacionJSON[@"lng"] floatValue]];
+                NSString *descripcion = pasoJSON[@"html_instructions"];
+                
+                Paso *paso = [[Paso alloc]initConUbicacion:ubicacion descripcionHablada:descripcion];
+                [self.pasosRestantesNavegacionActual addObject:paso];
+            }
+        }
+    }
+}
 #pragma mark CLLocationManagerDelegate
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    if (self.pasosRestantesNavegacionActual.count)
+    {
+        Paso *pasoSiguiente = self.pasosRestantesNavegacionActual.firstObject;
+        
+        if ([pasoSiguiente.ubicacionInicio distanceFromLocation:self.locationManager.location] <= 3)
+        {
+            [self.pasosRestantesNavegacionActual removeObjectAtIndex:0];
+            [self.motorVoz dictar:pasoSiguiente.descripcionHablada];
+        }
+    }
+}
 
 @end
