@@ -76,7 +76,7 @@ enum {
     return _sitiosUltimaConsulta;
 }
 
--(NSMutableArray *)pasosNavegacionActual
+-(NSMutableArray *)pasosRestantesNavegacionActual
 {
     if (!_pasosRestantesNavegacionActual)
     {
@@ -137,7 +137,7 @@ enum {
             NSString *direccion = resultadoJSON[@"vicinity"];
             
             Sitio *sitio = [[Sitio alloc]initConUbicacion:[[CLLocation alloc]initWithLatitude:[ubicacionJSON[@"lat"]floatValue]
-                                                                                   longitude:[ubicacionJSON[@"lon"]floatValue]]
+                                                                                   longitude:[ubicacionJSON[@"lng"]floatValue]]
                                                                                       nombre:nombre
                                                                                           ID:ID];
             sitio.direccion = direccion;
@@ -264,14 +264,8 @@ enum {
     return direccion;
 }
 
-#pragma mark DelegateMotorVoz
-
--(void)motorVoz:(MotorVoz *)motorVoz terminoReconocimientoConResultados:(SKRecognition *)results
+-(void)resultadoHabladoIdentificado:(NSString *)resultadoMasProbable
 {
-    NSString *resultadoMasProbable = [[results firstResult] lowercaseString];
-    
-    [self.delegate sistema:self nuevoReconocimientoVoz:resultadoMasProbable];
-    
     if ([resultadoMasProbable isEqualToString:@"cancelar"])
     {
         estado = AMEsperandoPregunta;
@@ -297,10 +291,11 @@ enum {
     else if (estado == AMEsperandoRespuestaSitio)
     {
         BOOL encontroSitio = NO;
+        Sitio *sitio;
         
         for (int i = 0; i< self.sitiosUltimaConsulta.count && i<5 && !encontroSitio; i++)
         {
-            Sitio *sitio = self.sitiosUltimaConsulta[i];
+            sitio = self.sitiosUltimaConsulta[i];
             
             if ([[sitio.direccion lowercaseString] containsString:resultadoMasProbable])
             {
@@ -316,7 +311,23 @@ enum {
         }
         
         if (!encontroSitio) [self.motorVoz dictar:@"Parece que eso no está en los resultados. quizás intenta otra vez"];
+            
+        else
+        {
+            [self navegarAUbicacion:sitio.ubicacion desde:self.locationManager.location];
+        }
     }
+}
+
+#pragma mark DelegateMotorVoz
+
+-(void)motorVoz:(MotorVoz *)motorVoz terminoReconocimientoConResultados:(SKRecognition *)results
+{
+    NSString *resultadoMasProbable = [[results firstResult] lowercaseString];
+    
+    [self.delegate sistema:self nuevoReconocimientoVoz:resultadoMasProbable];
+    
+    [self resultadoHabladoIdentificado:resultadoMasProbable];
 }
 
 -(void)motorVozTerminoDictado:(MotorVoz *)motorVoz
@@ -347,6 +358,7 @@ enum {
     [urlString appendFormat:@"origin=%f,%f", origen.coordinate.latitude, origen.coordinate.longitude];
     [urlString appendFormat:@"&destination=%f,%f", destino.coordinate.latitude, destino.coordinate.longitude];
     [urlString appendString:@"&language=ES"];
+    [urlString appendString:@"&mode=walking"];
     [urlString appendString:[@"&key=" stringByAppendingString:kGOOGLE_API_KEY]];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]
@@ -402,6 +414,24 @@ enum {
             [self.motorVoz dictar:pasoSiguiente.descripcionHablada];
         }
     }
+    
+    CLLocation *ubicacionActual = self.locationManager.location;
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://157.253.155.54:8080/JAXRS-RESTEasy/rest/receptorDatos/out?lat=%f&long=%f", ubicacionActual.coordinate.latitude , ubicacionActual.coordinate.longitude];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]
+                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval:60.0];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue new] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
+     {
+         NSString* newStr = [NSString stringWithUTF8String:[data bytes]];
+         
+         if ([newStr isEqualToString:@"true"])
+         {
+             [self.motorVoz dictar:@"Cuidado, puede haber escalones más adelante"];
+         }
+     }];
 }
 
 @end

@@ -34,4 +34,6 @@
 
 -(void) anunciarUbicacionActual;
 
+-(void)resultadoHabladoIdentificado:(NSString *)resultadoMasProbable;
+
 @end

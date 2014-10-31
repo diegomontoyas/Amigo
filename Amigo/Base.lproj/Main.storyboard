@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A361p" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -30,62 +30,99 @@
                                     <action selector="botonPantallaPresionado:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="I1d-cL-FPI"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFY-ea-yOn">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Cd-cT-Z4X">
+                                <rect key="frame" x="0.0" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iON-ge-L5x">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="o6r-mf-yRl"/>
+                                    <constraint firstAttribute="width" constant="56" id="xQe-Sd-9DU"/>
+                                </constraints>
+                                <state key="normal" title="DIje eso">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="o6r-mf-yRl"/>
+                                        <exclude reference="xQe-Sd-9DU"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="o6r-mf-yRl"/>
+                                        <include reference="xQe-Sd-9DU"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="botonDijeEsoPresionado:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="sXU-z4-IPt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mcL-zm-gOF" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="3PB-Ip-YxJ"/>
-                            <constraint firstItem="uFY-ea-yOn" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="9" id="HOM-GZ-3WK"/>
-                            <constraint firstItem="uFY-ea-yOn" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="69" id="aD0-We-rTa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iON-ge-L5x" secondAttribute="trailing" constant="9" id="0xJ-wU-cLP"/>
+                            <constraint firstItem="mcL-zm-gOF" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="3PB-Ip-YxJ">
+                                <variation key="heightClass=regular-widthClass=compact" constant="80"/>
+                            </constraint>
+                            <constraint firstItem="5Cd-cT-Z4X" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="23" id="EYg-oi-4um"/>
+                            <constraint firstItem="mcL-zm-gOF" firstAttribute="top" secondItem="5Cd-cT-Z4X" secondAttribute="bottom" constant="7" id="MOK-BM-J8E"/>
+                            <constraint firstItem="iON-ge-L5x" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="22" id="TPR-da-y0r"/>
                             <constraint firstItem="mcL-zm-gOF" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="ajh-u6-9Td"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mcL-zm-gOF" secondAttribute="trailing" constant="-16" id="bSE-ke-msv"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="mcL-zm-gOF" secondAttribute="bottom" id="fyx-n2-EPD"/>
-                            <constraint firstItem="uFY-ea-yOn" firstAttribute="centerX" secondItem="mcL-zm-gOF" secondAttribute="centerX" id="ki6-dV-DmF"/>
+                            <constraint firstItem="5Cd-cT-Z4X" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="mVX-JU-vqV"/>
+                            <constraint firstItem="iON-ge-L5x" firstAttribute="leading" secondItem="5Cd-cT-Z4X" secondAttribute="trailing" constant="8" id="tIm-vH-73A"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="mcL-zm-gOF"/>
-                                <exclude reference="uFY-ea-yOn"/>
+                                <exclude reference="5Cd-cT-Z4X"/>
+                                <exclude reference="iON-ge-L5x"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="EYg-oi-4um"/>
+                                <exclude reference="mVX-JU-vqV"/>
                                 <exclude reference="3PB-Ip-YxJ"/>
+                                <exclude reference="MOK-BM-J8E"/>
                                 <exclude reference="ajh-u6-9Td"/>
                                 <exclude reference="bSE-ke-msv"/>
-                                <exclude reference="HOM-GZ-3WK"/>
-                                <exclude reference="aD0-We-rTa"/>
-                                <exclude reference="ki6-dV-DmF"/>
+                                <exclude reference="0xJ-wU-cLP"/>
+                                <exclude reference="TPR-da-y0r"/>
+                                <exclude reference="tIm-vH-73A"/>
                                 <exclude reference="fyx-n2-EPD"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="mcL-zm-gOF"/>
-                                <include reference="uFY-ea-yOn"/>
+                                <include reference="5Cd-cT-Z4X"/>
+                                <include reference="iON-ge-L5x"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="EYg-oi-4um"/>
+                                <include reference="mVX-JU-vqV"/>
                                 <include reference="3PB-Ip-YxJ"/>
+                                <include reference="MOK-BM-J8E"/>
                                 <include reference="ajh-u6-9Td"/>
                                 <include reference="bSE-ke-msv"/>
-                                <include reference="HOM-GZ-3WK"/>
-                                <include reference="aD0-We-rTa"/>
-                                <include reference="ki6-dV-DmF"/>
+                                <include reference="0xJ-wU-cLP"/>
+                                <include reference="TPR-da-y0r"/>
+                                <include reference="tIm-vH-73A"/>
                                 <include reference="fyx-n2-EPD"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="botonPantalla" destination="mcL-zm-gOF" id="BJU-UF-pC7"/>
-                        <outlet property="label" destination="uFY-ea-yOn" id="L0w-aS-tmb"/>
+                        <outlet property="textField" destination="5Cd-cT-Z4X" id="JDN-tv-bhe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="544.5" y="321"/>
+            <point key="canvasLocation" x="576" y="357.75"/>
         </scene>
     </scenes>
 </document>

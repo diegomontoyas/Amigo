@@ -27,6 +27,9 @@
 		F104CE4219DAF971000D38FC /* Sistema.m in Sources */ = {isa = PBXBuildFile; fileRef = F104CE4119DAF971000D38FC /* Sistema.m */; };
 		F104CE4419DB0E79000D38FC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F104CE4319DB0E79000D38FC /* CoreLocation.framework */; };
 		F104CE4719DB11C3000D38FC /* Sitio.m in Sources */ = {isa = PBXBuildFile; fileRef = F104CE4619DB11C3000D38FC /* Sitio.m */; };
+		F155F4C41A01880D002BC730 /* Paso.m in Sources */ = {isa = PBXBuildFile; fileRef = F155F4C31A01880D002BC730 /* Paso.m */; };
+		F155F4C61A019247002BC730 /* bikehike_courseGPX.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F155F4C51A019247002BC730 /* bikehike_courseGPX.gpx */; };
+		F169D7D61A019BC000230074 /* routeGPX.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F169D7D51A019BC000230074 /* routeGPX.gpx */; };
 		F1DC88AF19DB79670090CC86 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F104CE3519DAF867000D38FC /* Foundation.framework */; };
 		F1DC88B119DB79730090CC86 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1DC88B019DB79730090CC86 /* UIKit.framework */; };
 		F1DC88B319DB79920090CC86 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1DC88B219DB79920090CC86 /* Security.framework */; };
@@ -76,6 +79,10 @@
 		F104CE4319DB0E79000D38FC /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F104CE4519DB11C3000D38FC /* Sitio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sitio.h; sourceTree = "<group>"; };
 		F104CE4619DB11C3000D38FC /* Sitio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sitio.m; sourceTree = "<group>"; };
+		F155F4C21A01880D002BC730 /* Paso.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Paso.h; sourceTree = "<group>"; };
+		F155F4C31A01880D002BC730 /* Paso.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Paso.m; sourceTree = "<group>"; };
+		F155F4C51A019247002BC730 /* bikehike_courseGPX.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = bikehike_courseGPX.gpx; path = Amigo/Resources/bikehike_courseGPX.gpx; sourceTree = "<group>"; };
+		F169D7D51A019BC000230074 /* routeGPX.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = routeGPX.gpx; path = Amigo/Resources/routeGPX.gpx; sourceTree = "<group>"; };
 		F1DC88B019DB79730090CC86 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F1DC88B219DB79920090CC86 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F1DC88E319DB8CD70090CC86 /* beginRecording.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = beginRecording.wav; path = Resources/beginRecording.wav; sourceTree = "<group>"; };
@@ -113,6 +120,8 @@
 		F104CDE619DACDD2000D38FC = {
 			isa = PBXGroup;
 			children = (
+				F169D7D51A019BC000230074 /* routeGPX.gpx */,
+				F155F4C51A019247002BC730 /* bikehike_courseGPX.gpx */,
 				F104CDF119DACDD2000D38FC /* Amigo */,
 				F104CE3F19DAF8CE000D38FC /* Frameworks */,
 				F104CE0E19DACDD3000D38FC /* AmigoTests */,
@@ -176,6 +185,8 @@
 		F104CE1B19DAD0EF000D38FC /* Modelo */ = {
 			isa = PBXGroup;
 			children = (
+				F155F4C21A01880D002BC730 /* Paso.h */,
+				F155F4C31A01880D002BC730 /* Paso.m */,
 				F104CE4519DB11C3000D38FC /* Sitio.h */,
 				F104CE4619DB11C3000D38FC /* Sitio.m */,
 				F104CE1F19DAD2A9000D38FC /* MotorVoz.h */,
@@ -304,7 +315,9 @@
 				F104CE3219DAF167000D38FC /* earcon_cancel.wav in Resources */,
 				F104CE3419DAF167000D38FC /* earcon_listening.wav in Resources */,
 				F104CE0319DACDD2000D38FC /* Images.xcassets in Resources */,
+				F155F4C61A019247002BC730 /* bikehike_courseGPX.gpx in Resources */,
 				F1DC88E619DB8CD70090CC86 /* beginRecording.wav in Resources */,
+				F169D7D61A019BC000230074 /* routeGPX.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +339,7 @@
 				F104CDF819DACDD2000D38FC /* AppDelegate.m in Sources */,
 				F104CE4219DAF971000D38FC /* Sistema.m in Sources */,
 				F104CDFB19DACDD2000D38FC /* Amigo.xcdatamodeld in Sources */,
+				F155F4C41A01880D002BC730 /* Paso.m in Sources */,
 				F104CE4719DB11C3000D38FC /* Sitio.m in Sources */,
 				F104CDFE19DACDD2000D38FC /* ViewController.m in Sources */,
 				F104CDF519DACDD2000D38FC /* main.m in Sources */,

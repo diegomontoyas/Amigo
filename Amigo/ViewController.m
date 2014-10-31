@@ -13,7 +13,7 @@
 @interface ViewController () <DelegateSistema>
 
 @property (strong, nonatomic) IBOutlet UIButton *botonPantalla;
-@property (strong, nonatomic) IBOutlet UILabel *label;
+@property (strong, nonatomic) IBOutlet UITextField *textField;
 
 @end
 
@@ -43,10 +43,14 @@
 {
     [[Sistema S] comenzarReconocimientoVoz];
 }
+- (IBAction)botonDijeEsoPresionado:(id)sender
+{
+    [[Sistema S]resultadoHabladoIdentificado:self.textField.text];
+}
 
 -(void)sistema:(Sistema *)sistema nuevoReconocimientoVoz:(NSString *)textoDetectado
 {
-    self.label.text = textoDetectado;
+    self.textField.text = textoDetectado;
 }
 
 - (void)didReceiveMemoryWarning
