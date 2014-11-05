@@ -36,6 +36,8 @@
 		F1DC88E619DB8CD70090CC86 /* beginRecording.wav in Resources */ = {isa = PBXBuildFile; fileRef = F1DC88E319DB8CD70090CC86 /* beginRecording.wav */; };
 		F1DC88E819DB8CD70090CC86 /* stopRecording.wav in Resources */ = {isa = PBXBuildFile; fileRef = F1DC88E519DB8CD70090CC86 /* stopRecording.wav */; };
 		F1DC88EA19DB8D0D0090CC86 /* recordingCancelled.wav in Resources */ = {isa = PBXBuildFile; fileRef = F1DC88E919DB8D0D0090CC86 /* recordingCancelled.wav */; };
+		F1E195F11A0528FF00BFF6BF /* waypoints.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F1E195F01A0528FF00BFF6BF /* waypoints.gpx */; };
+		F1E195F31A05323500BFF6BF /* Inicio.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F1E195F21A05323500BFF6BF /* Inicio.gpx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,8 @@
 		F1DC88E319DB8CD70090CC86 /* beginRecording.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = beginRecording.wav; path = Resources/beginRecording.wav; sourceTree = "<group>"; };
 		F1DC88E519DB8CD70090CC86 /* stopRecording.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = stopRecording.wav; path = Resources/stopRecording.wav; sourceTree = "<group>"; };
 		F1DC88E919DB8D0D0090CC86 /* recordingCancelled.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = recordingCancelled.wav; path = Resources/recordingCancelled.wav; sourceTree = "<group>"; };
+		F1E195F01A0528FF00BFF6BF /* waypoints.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = waypoints.gpx; sourceTree = "<group>"; };
+		F1E195F21A05323500BFF6BF /* Inicio.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Inicio.gpx; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,8 @@
 		F104CDE619DACDD2000D38FC = {
 			isa = PBXGroup;
 			children = (
+				F1E195F21A05323500BFF6BF /* Inicio.gpx */,
+				F1E195F01A0528FF00BFF6BF /* waypoints.gpx */,
 				F169D7D51A019BC000230074 /* routeGPX.gpx */,
 				F155F4C51A019247002BC730 /* bikehike_courseGPX.gpx */,
 				F104CDF119DACDD2000D38FC /* Amigo */,
@@ -307,6 +313,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1E195F11A0528FF00BFF6BF /* waypoints.gpx in Resources */,
 				F104CE0119DACDD2000D38FC /* Main.storyboard in Resources */,
 				F1DC88E819DB8CD70090CC86 /* stopRecording.wav in Resources */,
 				F104CE0619DACDD2000D38FC /* LaunchScreen.xib in Resources */,
@@ -317,6 +324,7 @@
 				F104CE0319DACDD2000D38FC /* Images.xcassets in Resources */,
 				F155F4C61A019247002BC730 /* bikehike_courseGPX.gpx in Resources */,
 				F1DC88E619DB8CD70090CC86 /* beginRecording.wav in Resources */,
+				F1E195F31A05323500BFF6BF /* Inicio.gpx in Resources */,
 				F169D7D61A019BC000230074 /* routeGPX.gpx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

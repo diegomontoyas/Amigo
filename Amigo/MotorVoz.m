@@ -15,6 +15,8 @@ const unsigned char SpeechKitApplicationKey[] = {0x3e, 0xd0, 0x93, 0x36, 0xde, 0
 @property (nonatomic) SKRecognizer* recognizer;
 @property (nonatomic) SKVocalizer* vocalizer;
 
+@property (nonatomic) BOOL hablando;
+
 @end
 
 @implementation MotorVoz
@@ -53,6 +55,8 @@ enum {
     [SpeechKit setEarcon:earconStart forType:SKStartRecordingEarconType];
     [SpeechKit setEarcon:earconStop forType:SKStopRecordingEarconType];
     [SpeechKit setEarcon:earconCancel forType:SKCancelRecordingEarconType];
+    
+    self.hablando = false;
 }
 
 -(void) comenzarReconocimiento
@@ -78,8 +82,11 @@ enum {
 
 -(void) dictar:(NSString *) textoALeer
 {
-    self.vocalizer = [[SKVocalizer alloc] initWithLanguage:@"spa-MEX" delegate:self];
-    [self.vocalizer speakString:textoALeer];
+    if (!self.hablando)
+    {
+        self.vocalizer = [[SKVocalizer alloc] initWithLanguage:@"spa-MEX" delegate:self];
+        [self.vocalizer speakString:textoALeer];
+    }
 }
 
 #pragma mark SKRecognizerDelegate
@@ -125,6 +132,7 @@ enum {
 
 - (void)vocalizer:(SKVocalizer *)vocalizer willBeginSpeakingString:(NSString *)text
 {
+    self.hablando = true;
     transactionState = TS_SPEAKING;
 }
 
@@ -140,6 +148,7 @@ enum {
         
         [self.delegate motorVozTerminoDictado:self];
         transactionState = TS_IDLE;
+        self.hablando = false;
     });
 }
 

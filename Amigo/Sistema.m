@@ -20,6 +20,8 @@
 @property (nonatomic) NSMutableArray *pasosRestantesNavegacionActual;
 @property (nonatomic) Sitio *ultimaUbicacionActualRegistrada;
 
+@property (nonatomic) BOOL speaking;
+
 @end
 
 @implementation Sistema
@@ -100,7 +102,7 @@ enum {
 -(void)buscarSitiosConPalabrasClave:(NSString *) palabrasClave
 {
     CLLocationCoordinate2D coordendas = self.locationManager.location.coordinate;
-    int radioBusqueda = 300;
+    int radioBusqueda = 700;
     
     NSString *stringUrl = [NSString stringWithFormat: @"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%f,%f&radius=%d&sensor=true&name=%@&key=%@", coordendas.latitude, coordendas.longitude, radioBusqueda, palabrasClave, kGOOGLE_API_KEY];
     
@@ -160,7 +162,7 @@ enum {
             }
         }
         
-        [respuestaHablada appendString:@", ¿a cuál de ellos deseas ir?"];
+        [respuestaHablada appendString:@", ¿a cuál deseas ir?"];
         
         dispatch_sync(dispatch_get_main_queue(), ^{
             
@@ -392,7 +394,7 @@ enum {
                 NSDictionary *ubicacionJSON = pasoJSON[@"start_location"];
                 CLLocation *ubicacion = [[CLLocation alloc]initWithLatitude:[ubicacionJSON[@"lat"] floatValue]
                                                                   longitude:[ubicacionJSON[@"lng"] floatValue]];
-                NSString *descripcion = pasoJSON[@"html_instructions"];
+                NSString *descripcion = [[[[pasoJSON[@"html_instructions"] stringByReplacingOccurrencesOfString:@"<b>" withString:@""]stringByReplacingOccurrencesOfString:@"</b>" withString:@""] stringByReplacingOccurrencesOfString:@"<div style=\"font-size:0.9em\">" withString:@""] stringByReplacingOccurrencesOfString:@"</div>" withString:@""];
                 
                 Paso *paso = [[Paso alloc]initConUbicacion:ubicacion descripcionHablada:descripcion];
                 [self.pasosRestantesNavegacionActual addObject:paso];
@@ -408,7 +410,7 @@ enum {
     {
         Paso *pasoSiguiente = self.pasosRestantesNavegacionActual.firstObject;
         
-        if ([pasoSiguiente.ubicacionInicio distanceFromLocation:self.locationManager.location] <= 3)
+        if ([pasoSiguiente.ubicacionInicio distanceFromLocation:self.locationManager.location] <= 10)
         {
             [self.pasosRestantesNavegacionActual removeObjectAtIndex:0];
             [self.motorVoz dictar:pasoSiguiente.descripcionHablada];
@@ -417,7 +419,7 @@ enum {
     
     CLLocation *ubicacionActual = self.locationManager.location;
     
-    NSString *urlString = [NSString stringWithFormat:@"http://157.253.155.54:8080/JAXRS-RESTEasy/rest/receptorDatos/out?lat=%f&long=%f", ubicacionActual.coordinate.latitude , ubicacionActual.coordinate.longitude];
+    NSString *urlString = [NSString stringWithFormat:@"http://192.168.0.6:8080/JAXRS-RESTEasy/rest/receptorDatos/out?lat=%f&long=%f", ubicacionActual.coordinate.latitude , ubicacionActual.coordinate.longitude];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
@@ -425,7 +427,7 @@ enum {
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue new] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
      {
-         NSString* newStr = [NSString stringWithUTF8String:[data bytes]];
+         NSString* newStr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
          
          if ([newStr isEqualToString:@"true"])
          {
